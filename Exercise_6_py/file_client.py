@@ -17,8 +17,9 @@ def main(argv):
 
 
     
-def receiveFile(fileName,  conn):
+#def receiveFile(fileName,  conn):
 	# TO DO Your Code
+
 
 if __name__ == "__main__":
    main(sys.argv[1:])
