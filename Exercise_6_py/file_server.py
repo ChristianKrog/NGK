@@ -8,9 +8,9 @@ BUFSIZE = 1000
 
 def main(argv):
 	# TO DO Your Code
-	serverSock = socket(AF_INET, SOCK_STREAM)
+	serverSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	serverSock.bind((HOST,PORT))
-	serverSock.listen(1)6
+	serverSock.listen(1)
 	print 'The server is ready to receive'
 	conn, addr = serverSock.accept()
 
@@ -20,7 +20,7 @@ def main(argv):
 
 	Lib.writeTextTCP(size, serverSock)
 
-def sendFile(fileName,  fileSize,  conn):
+#def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code
 
     
