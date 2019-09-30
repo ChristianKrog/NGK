@@ -2,8 +2,8 @@ import sys
 import socket 
 from lib import Lib
 
-HOST = '10.0.0.2'
-PORT = 80
+HOST = '10.0.0.1'
+PORT = 9000
 BUFSIZE = 1000
 
 def main(argv):
