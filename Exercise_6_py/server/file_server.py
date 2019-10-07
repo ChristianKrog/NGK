@@ -1,5 +1,5 @@
 import sys
-import socket
+from socket import * 
 from lib import Lib
 
 HOST = '10.0.0.1'
@@ -8,30 +8,33 @@ BUFSIZE = 1000
 
 def main(argv):
 	# TO DO Your Code
-	serverSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	serverSock = socket(AF_INET, SOCK_STREAM)
 	serverSock.bind((HOST,PORT))
 	serverSock.listen(1)
 	print 'The server is ready to receive'
 	
-	while True 
+	while True: 
 		conn, addr = serverSock.accept()
-		print 'Connected to clint - Port - ', PORT
+		print 'Connected to client - Port - ', PORT
 		txtClient = Lib.readTextTCP(conn)
-		fileSize = Lib.check_File_Exist(txtClient)
+		fileName = Lib.extractFilename(txtClient)
+		fileSize = str(Lib.check_File_Exists(fileName))
 		Lib.writeTextTCP(fileSize, conn)
-		if fileSize != 0
-			conn.sendFile()
+		sendFile(fileName,fileSize,conn)
 
 
 def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code
 	f = open(fileName, 'rb')
-	l = f.read(BUFSIZE)
-	while(l)
-		conn.send(l)
-		l = f.read(BUFSIZE)
-	f.close()
+	dataTosend = f.read(BUFSIZE)
+	
+	while dataTosend: 
+		conn.send(dataTosend)
+		
+		dataTosend = f.read(BUFSIZE)
 	print('Done sending')
+	f.close()
+
     
 if __name__ == "__main__":
    main(sys.argv[1:])
