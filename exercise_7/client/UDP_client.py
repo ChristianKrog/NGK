@@ -7,13 +7,13 @@ serverAddr= (HOST, PORT)
 BUF = 1024
 
 def main(argv):
-	serverClient = socket(AF_INET, SOCK_DGRAM) #create UDP socket
+	clientSock = socket(AF_INET, SOCK_DGRAM) #create UDP socket
 
 	while True: 
 		print 'Please enter a valid letter ("U", "u" , "L" or "l"): '
 		input1 = raw_input() #get input from terminal 
-		serverClient.sendto(input1, serverAddr) #Sends the terminal input to server 
-		data = serverClient.recvfrom(BUF) #receive message from server
+		clientSock.sendto(input1, serverAddr) #Sends the terminal input to server 
+		data = clientSock.recvfrom(BUF) #receive message from server
 		print data[0] 
     
 if __name__ == "__main__":
