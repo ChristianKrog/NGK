@@ -1,22 +1,21 @@
 import sys
 from socket import * 
-from lib import Lib
 
-HOST = '10.0.0.1'
+HOST = '10.0.0.1' #server IP
 PORT = 9000
 serverAddr= (HOST, PORT)
 BUF = 1024
 
 def main(argv):
-	# TO DO Your Code
-	serverClient = socket(AF_INET, SOCK_DGRAM)
+	serverClient = socket(AF_INET, SOCK_DGRAM) #create UDP socket
 
 	while True: 
-		print 'Please enter a valid letter ("U", "u" , "L" or "l")'
-		input1 = input()
-		serverClient.sendto(input1, serverAddr)
-		data = serverClient.recvfrom(BUF)
-		print data
+		print 'Please enter a valid letter ("U", "u" , "L" or "l"): '
+		input1 = raw_input() #get input from terminal 
+		serverClient.sendto(input1, serverAddr) #Sends the terminal input to server 
+		data = serverClient.recvfrom(BUF) #receive message from server
+		print data[0] 
     
 if __name__ == "__main__":
    main(sys.argv[1:])
+
