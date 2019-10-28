@@ -15,9 +15,11 @@ def main(argv):
 
 			if input1 == 'S':
 				clientSock.sendto(input1, serverAddr) #Sends the terminal input to server 
-
+				
 		data = clientSock.recvfrom(BUF) #receive message from server
 		print data[0] 
+
+		
     
 if __name__ == "__main__":
    main(sys.argv[1:])
