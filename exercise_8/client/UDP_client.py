@@ -14,7 +14,7 @@ def main(argv):
 		input1 = raw_input() #get input from terminal 
 
 		if input1 == 'S':
-			clientSock.sendto(input1, serverAddr) #Sends the terminal input to server 
+			clientSock.sendto('Hej UDP-server', serverAddr) #Sends the terminal input to server 
 
 		data = clientSock.recvfrom(BUF) #receive message from server
 		print data[0] 

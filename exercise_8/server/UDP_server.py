@@ -17,7 +17,7 @@ def main(argv):
 		clientAddr = data[1] #extract clientaddress. 
 		print 'Letter: "' + mesClient +'" received from client with address: ' + format(clientAddr)
 
-		if mesClient !=:
+		if mesClient == 'Hej UDP-server':
 			serverSock.sendto('Hej UDP-Client', clientAddr) #send content
 			print 'Message sent'
     
