@@ -13,9 +13,9 @@ def main(argv):
 		print 'Please enter a "S": '
 		input1 = raw_input() #get input from terminal 
 
-			if input1 == 'S':
-				clientSock.sendto(input1, serverAddr) #Sends the terminal input to server 
-				
+		if input1 == 'S':
+			clientSock.sendto(input1, serverAddr) #Sends the terminal input to server 
+
 		data = clientSock.recvfrom(BUF) #receive message from server
 		print data[0] 
 
